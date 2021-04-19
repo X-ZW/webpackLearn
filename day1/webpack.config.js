@@ -1,9 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+console.log(process.env.aa)
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle.[hash:8].js',
         path: path.resolve(__dirname, 'build'),
     },
     devServer: {
@@ -12,5 +14,16 @@ module.exports = {
         contentBase: './build', // 指定目录
         open: true, // 自动打开浏览器
         compress: true, // gzp压缩
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html',
+            minify: {
+                removeAttributeQuotes: true, // 删除双引号
+                collapseWhitespace: true, // 折叠空行
+            },
+            hash: true
+        })
+    ]
 }

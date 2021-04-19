@@ -4,11 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "set aa=22&webpack",
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^4.5.2",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "dependencies": {}
 }

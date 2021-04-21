@@ -25,5 +25,40 @@ module.exports = {
             },
             hash: true
         })
-    ]
+    ],
+    module: {
+        rules: [
+            // css-loader
+            {
+                test: /\.css$/,
+                // css-loader 负责解析@import语法
+                // style-loader 把css插入head的标签中
+                // loader的顺序 默认从右向左执行 从下到上执行
+                // loader还可以写成对象
+                // use: [{loader: 'style-loader', options: {...}}, 'css-loader']
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            insert: 'body' // 插入的位置,相对于自己在页面中定义的style
+                        }
+                    },
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            insert: 'body' // 插入的位置,相对于自己在页面中定义的style
+                        }
+                    },
+                    'css-loader',// @import 语法，解析路径
+                    'less-loader' // less => css
+                ]
+            }
+        ]
+    }
 }

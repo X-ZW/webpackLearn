@@ -25,5 +25,22 @@ module.exports = {
             },
             hash: true
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.less$/,
+                use: [
+                    {
+                        loader: "style-loader",
+                        options: {
+                            insert: 'body'
+                          }
+                    },
+                    'css-loader',
+                    'less-loader'
+                ]
+            }
+        ]
+    }
 }

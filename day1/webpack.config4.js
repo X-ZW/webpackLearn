@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MiniCssExtractPlugin2 = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+let webpack = require('webpack')
 console.log(process.env.aa)
 // 配置使用 mini-css-extract-plugin, post-css, autoprefixer
 // autoprefixer需要配置文件 ==> postcss.config.js
@@ -46,10 +47,20 @@ module.exports = {
         }),
         new MiniCssExtractPlugin2({
             filename: 'mainAndLess.css', // 抽离出的css的文件名
-        })
+        }),
+        new webpack.ProvidePlugin({ // 在每个模块中都注入JQ
+            jQuery: 'jquery'
+        }), // 提供插件
     ],
+    // externals: { // 如果html cdn引入jq，js文件中 import导入jq，两个jq都会打包
+    //     jquery: 'jQuery'
+    // },
     module: {
         rules: [
+            // {
+            //     test: require.resolve('jquery'),
+            //     use: 'expose-loader?jQuery!'
+            // },
             {
                 test: /\.js$/,
                 use: {

@@ -23,6 +23,7 @@ module.exports = {
     output: {
         filename: 'bundle.[hash:8].js',
         path: path.resolve(__dirname, 'build'),
+        //publicPath: 'xxx' // cdn
     },
     devServer: {
         port: 3000,
@@ -64,7 +65,9 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         esModule: false, // 不设置会导致html-withimg-loader 报表， html文件中的路径会变成 {default...}
-                        limit: 200 * 1024
+                        limit: 200 * 1024,
+                        outputPath: '/img/',
+                        //publicPath: 'xxx'   // 单独发布图片的cdn
                     }
                 }
             },

@@ -2,7 +2,7 @@ console.log('index')
 
 class A {
     constructor() {
-        console.lo('d')
+        console.log('xzw222')
     }
 }
 

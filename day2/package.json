@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:sm": "webpack --config webpack.config2.js",
+    "build:watch": "webpack --config webpack.config3.js",
     "dev:sm": "webpack-dev-server --config webpack.config2.js"
   },
   "keywords": [],

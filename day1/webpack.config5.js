@@ -63,6 +63,7 @@ module.exports = {
                 use: {
                     loader: 'url-loader',
                     options: {
+                        esModule: false, // 不设置会导致html-withimg-loader 报表， html文件中的路径会变成 {default...}
                         limit: 200 * 1024
                     }
                 }

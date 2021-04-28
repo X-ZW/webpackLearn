@@ -1,9 +1,19 @@
-console.log('index')
+// console.log('index')
 
-class A {
-    constructor() {
-        console.log('xzw222')
-    }
+// class A {
+//     constructor() {
+//         console.log('xzw222')
+//     }
+// }
+
+// const a = new A()
+console.log('xzw')
+// webpack处理跨域
+let xhr = new XMLHttpRequest();
+
+xhr.open('GET', '/api/user', true);
+xhr.onload = function () {
+    console.log('response', xhr.response)
 }
 
-const a = new A()
+xhr.send()

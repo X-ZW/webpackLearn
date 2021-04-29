@@ -8,6 +8,11 @@ module.exports = {
         filename: 'build.js',
         path: path.resolve(__dirname, 'dist')
     },
+    devServer: {
+        port: 3000,
+        open: true,
+        contentBase: './dist'
+    },
     module: {
         noParse: /jquery/, // 不解析jquery中的依赖关系
         rules: [
@@ -26,6 +31,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, 'dist', 'manifest.json')
+        }),
         new webpack.IgnorePlugin(/\.\/locale/, /moment/),
         new HtmlWebpackPlugin({
             template: './public/index.html',

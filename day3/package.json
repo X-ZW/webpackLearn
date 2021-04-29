@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "build:r": "webpack --config webpack.config.react.js",
     "dev": "webpack-dev-server"
   },
   "keywords": [],

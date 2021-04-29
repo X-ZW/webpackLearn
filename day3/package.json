@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:sm": "webpack --config webpack.config2.js",
-    "build:watch": "webpack --config webpack.config3.js",
-    "build:c": "webpack --config webpack.config4.js",
-    "dev:sm": "webpack-dev-server --config webpack.config2.js",
-    "dev:proxy": "webpack-dev-server --config webpack.config5.js"
+    "build": "webpack",
+    "dev": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "webpack": "^4.46.0"
   },
   "devDependencies": {

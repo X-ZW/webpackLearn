@@ -1,5 +1,6 @@
 let path = require('path')
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let webpack = require('webpack')
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
@@ -25,6 +26,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.IgnorePlugin(/\.\/locale/, /moment/),
         new HtmlWebpackPlugin({
             template: './public/index.html',
         })

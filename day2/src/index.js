@@ -7,13 +7,24 @@
 // }
 
 // const a = new A()
-console.log('xzw')
-// webpack处理跨域
-let xhr = new XMLHttpRequest();
+// console.log('xzw')
+// // webpack处理跨域
+// let xhr = new XMLHttpRequest();
 
-xhr.open('GET', '/api/user', true);
-xhr.onload = function () {
-    console.log('response', xhr.response)
+// xhr.open('GET', '/api/user', true);
+// xhr.onload = function () {
+//     console.log('response', xhr.response)
+// }
+
+// xhr.send()
+
+
+// 配置环境
+let name = '';
+if (DEV === 'dev') {
+    name = 'xyj'
+} else {
+    name = 'xzw'
 }
 
-xhr.send()
+console.log(name)
